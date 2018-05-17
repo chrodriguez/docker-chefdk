@@ -5,11 +5,21 @@ shell script wrapper como el siguiente:
 
 ```bash
 #!/bin/bash
+
+set -eo pipefail
+
+if [ $( echo $PWD | grep -q ^$HOME ) ]; then
+  EXTRA=""
+else
+  EXTRA="-v $PWD:$PWD "
+fi
+
 docker run --rm -it \
+  -v $HOME:$HOME \
+  $EXTRA \
   -v /etc/passwd:/etc/passwd:ro \
   -v /etc/group:/etc/group:ro \
   -u $(id -u):$(id -g) \
-  -v $PWD:$PWD \
   -w $PWD chrodriguez/chefdk $@
 ```
 
