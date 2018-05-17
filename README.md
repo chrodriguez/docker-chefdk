@@ -1,7 +1,7 @@
 # Mi chefdk
 
 Este repo tiene chedfk con soporte de git. Mi idea es usarlo a través de un
-shell script wrapper como el siguiente:
+shell script wrapper (proponemos llamarlo **chefdk-docker**) como el siguiente:
 
 ```bash
 #!/bin/bash
@@ -26,8 +26,8 @@ docker run --rm -it \
 Luego, es posible utilizar el comando de la siguiente forma:
 
 ```
-chef-docker berks install
-chef docker chef generate cookbook prueba
+chefdk-docker berks install
+chefdk-docker chef generate cookbook prueba
 ```
 
 
